@@ -11,7 +11,10 @@ if (isset($_POST["ej1"])) {
 }
 //ejercicio 2
 else if (isset($_POST["ej2"])) {
-    
+    $ej2 = $_POST["ej2"];
+    $hi2 = "El número seleccionado es => " . $ej2;
+    $array_planetas = array_fill(0,$ej2, "Deshabitado");
+    $res2=json_encode($array_planetas);
 }
 
 
@@ -57,21 +60,13 @@ else if (isset($_POST["ej2"])) {
     <h4> <?= $res ?></h4>
 
     <h2>Ejercicio 2</h2>
-    <p> Identificar otras cosas </p>
+    <p> Crear un array para un sistema solar </p>
     <form method="POST" action="">
-        <label for="ej2">Ingresar el número del planeta que desea observar</label>
-        <select name="ej2" onchange="this.form.submit()">
-            <option name="select" id="select" selected>select</option>
-            <option name="1" id="1">1</option>
-            <option name="2" id="2">2</option>
-            <option name="3" id="3">3</option>
-            <option name="4" id="4">4</option>
-            <option name="5" id="5">5</option>
-            <option name="6" id="6">6</option>
-            <option name="7" id="7">7</option>
-            <option name="8" id="8">8</option>
-        </select>
+        <label for="ej2">Ingresar el número de planetas del sistema solar</label>
+        <input type="number"name="ej2">
     </form>
+    <p> <?= $hi2 ?> </p>
+    <h4> <?= $res2 ?></h4>
 
 </body>
 
