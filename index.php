@@ -23,8 +23,21 @@ else if (isset($_POST["ej3"])){
     $array_planetas = [ "Mercurio" => false, "Venus" => false, "Tierra" => true, "Marte" => false, "Júpiter" => false, "Saturno" => false, "Urano" => false, "Neptuno" => false];
     $filter=array_filter($array_planetas, fn($p1) => $p1==true);
     $res3= " Los planetas habitables son: " . json_encode($filter);
-
 }
+
+else if (isset($_POST["ej4"])){
+    $ej4=$_POST["ej4"];
+    print_r($ej4);
+    $hi4 = "El planeta seleccionado es => " . $ej4;
+    $array_planetas=["Mercurio"=>0.38, "Venus"=>0.91, "Tierra"=>1, "Marte"=>0.38, "Jupiter"=>2.53, "Saturno"=>1.07, "Urano"=>0.92, "Neptuno"=>1.19 ];
+    $planetasGravedad = array_map(fn($array_planetas) => $array_planetas*9.80665,$array_planetas);
+    $gravedad=isset($planetasGravedad[$ej4])?$planetasGravedad[$ej4]:"nothing";
+    $res4="la gravedad del planeta seleccionado es de : " . $gravedad .  " m/s^2";
+}
+
+
+
+
 
 ?>
 
@@ -83,6 +96,24 @@ else if (isset($_POST["ej3"])){
     </form>
     <h4> <?= $res3 ?></h4>
 
+    <h2>Ejercicio 4</h2>
+    <p>Calcular la gravedad en diferentes planetas</p>
+    <form method="POST" action="">
+        <label for="ej4">Selecciona el planeta para calcular la gravedad real</label>
+        <select name="ej4" onchange="this.form.submit()">
+            <option name="select" id="select" selected>select</option>
+            <option name="Mercurio" id="Mercurio">Mercurio</option>
+            <option name="Venus" id="Venus">Venus</option>
+            <option name="Tierra" id="Tierra">Tierra</option>
+            <option name="Marte" id="Marte">Marte</option>
+            <option name="Jupiter" id="Jupiter">Jupiter</option>
+            <option name="Saturno" id="Saturno">Saturno</option>
+            <option name="Urano" id="Urano">Urano</option>
+            <option name="Neptuno" id="Neptuno">Neptuno</option>
+        </select>
+    </form>
+    <p> <?= $hi4 ?> </p>
+    <h4> <?= $res4 ?></h4>
 
 </body>
 
