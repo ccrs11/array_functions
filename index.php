@@ -75,7 +75,12 @@ else if (isset($_POST["ej3"])) {
     var_dump($push);
     $encoded = json_encode($array_satelites);
     $res12 = "los satelites de saturno ahora son: $encoded";
-}
+} else if (isset($_POST["ej13"])) {
+    $sistema_solar = ["mercurio", "venus", "tierra", "marte", "jupiter", "saturno", "urano", "neptuno"];
+    $reverse = array_reverse($sistema_solar);
+    $encoded = json_encode($reverse);
+    $res13 = "Los planetas revertidos: $encoded";
+} 
 
 
 
@@ -222,6 +227,13 @@ else if (isset($_POST["ej3"])) {
     </form>
     <h4> <?= $res12 ?></h4>
 
+    <h2>Ejercicio 13</h2>
+    <p> Revertir el orden de los planetas en un sistema solar </p>
+    <form method="POST" action="">
+        <label for="ej13">tocar el botón para revertir el orden de los planetas en un sistema solar</label>
+        <button name="ej13">revert</button>
+    </form>
+    <h4> <?= $res13 ?> </h4>
 
 </body>
 
