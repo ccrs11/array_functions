@@ -60,11 +60,18 @@ else if (isset($_POST["ej9"])) {
     $res9 = "Las especies únicas son:  $encoded" ;
 }
 else if(isset($_POST["ej10"])){
-    $sistema1=["mercurio", "venus", "tierra", "marte", "júpiter", "saturno", "urano", "neptuno"];
+    $sistema1=["mercurio", "venus", "tierra", "marte", "jupiter", "saturno", "urano", "neptuno"];
     $sistema2=["andromeda","triangulum","sombrero","Whirlpool","Centaurus","venus", "tierra", "saturno", "urano"];
     $inter=array_intersect($sistema1,$sistema2);
     $encoded=json_encode($inter);
     $res10 = "Los planetas comunes son: $encoded" ;
+}
+else if(isset($_POST["ej11"])){
+    $sistema1=["mercurio", "venus", "tierra", "marte", "jupiter", "saturno", "urano", "neptuno"];
+    $sistema2=["andromeda","triangulum","sombrero","Whirlpool","Centaurus","venus", "tierra", "saturno", "urano"];
+    $differ=array_diff($sistema1,$sistema2);
+    $encoded=json_encode($differ);
+    $res11 = "Los planetas comunes son: $encoded" ;
 }
 
 
@@ -193,6 +200,14 @@ else if(isset($_POST["ej10"])){
         <button name="ej10">Planetas comunes</button>
     </form>
     <h4> <?= $res10 ?> </h4>
+
+    <h2>Ejercicio 11</h2>
+    <p> Encontrar planetas únicos en dos sistemas solares </p>
+    <form method="POST" action="">
+        <label for="ej11">tocar el botón para encontrar planetas únicos en dos sistemas solares</label>
+        <button name="ej11">Planetas únicos</button>
+    </form>
+    <h4> <?= $res11 ?> </h4>
 
 </body>
 
