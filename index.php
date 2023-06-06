@@ -16,8 +16,15 @@ else if (isset($_POST["ej2"])) {
     $array_planetas = array_fill(0,$ej2, "Deshabitado");
     $res2=json_encode($array_planetas);
 }
+//ejercio 3
+else if (isset($_POST["ej3"])){
+    $ej3 = $_POST["ej3"];
 
+    $array_planetas = [ "Mercurio" => false, "Venus" => false, "Tierra" => true, "Marte" => false, "Júpiter" => false, "Saturno" => false, "Urano" => false, "Neptuno" => false];
+    $filter=array_filter($array_planetas, fn($p1) => $p1==true);
+    $res3= " Los planetas habitables son: " . json_encode($filter);
 
+}
 
 ?>
 
@@ -67,6 +74,15 @@ else if (isset($_POST["ej2"])) {
     </form>
     <p> <?= $hi2 ?> </p>
     <h4> <?= $res2 ?></h4>
+
+    <h2>Ejercicio 3</h2>
+    <p> Filtrar planetas habitables </p>
+    <form method="POST" action="">
+        <label for="ej3">tocar el botón para conocer los planetas habitables</label>
+        <button name="ej3">planetas ((0))</button>
+    </form>
+    <h4> <?= $res3 ?></h4>
+
 
 </body>
 
