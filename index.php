@@ -59,6 +59,13 @@ else if (isset($_POST["ej9"])) {
     $encoded=json_encode($unique);
     $res9 = "Las especies únicas son:  $encoded" ;
 }
+else if(isset($_POST["ej10"])){
+    $sistema1=["mercurio", "venus", "tierra", "marte", "júpiter", "saturno", "urano", "neptuno"];
+    $sistema2=["andromeda","triangulum","sombrero","Whirlpool","Centaurus","venus", "tierra", "saturno", "urano"];
+    $inter=array_intersect($sistema1,$sistema2);
+    $encoded=json_encode($inter);
+    $res10 = "Los planetas comunes son: $encoded" ;
+}
 
 
 ?>
@@ -178,6 +185,14 @@ else if (isset($_POST["ej9"])) {
         <button name="ej9">Eliminar duplicados</button>
     </form>
     <h4> <?= $res9 ?></h4>
+
+    <h2>Ejercicio 10</h2>
+    <p> Encontrar planetas comunes en dos sistemas solares </p>
+    <form method="POST" action="">
+        <label for="ej10">tocar el botón para encontrar planetas comunes en dos sistemas solares</label>
+        <button name="ej10">Planetas comunes</button>
+    </form>
+    <h4> <?= $res10 ?> </h4>
 
 </body>
 
