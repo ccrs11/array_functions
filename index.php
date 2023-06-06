@@ -47,6 +47,12 @@ else if (isset($_POST["ej6"])){
     $res6 = $consulta ? "El planeta $ej6 SI existe" : "El planeta $ej6 NO existe";
 }
 
+else if (isset($_POST["ej7"])){
+    $ej7 = strtolower($_POST["ej7"]);
+    $array_tipos = ["sobrevuelo","orbiter","atmosférica","lander","rover","penetradora","observatorio","comunicaciones"];
+    $consulta = in_array($ej7,$array_tipos);
+    $res7 = $consulta ? "El tipo de nave $ej7 SI existe" : "El tipo de nave $ej7 NO existe";
+}
 
 ?>
 
@@ -140,6 +146,15 @@ else if (isset($_POST["ej6"])){
         <input type="text" name="ej6">Coloca el nombre del planeta que deseas consultar y presiona enter</input>
     </form>
     <h4> <?= $res6 ?></h4>
+
+    <h2>Ejercicio 7</h2>
+    <p> Verificar si un tipo de nave espacial está en tu flota </p>
+    <form method="POST" action="">
+        <label for="ej7">Ingrese el tipo de nave</label>
+        <br>
+        <input type="text" name="ej7"></input>
+    </form>
+    <h4> <?= $res7 ?></h4>
 
 </body>
 
