@@ -37,10 +37,15 @@ else if (isset($_POST["ej5"])){
     $ej5=$_POST["ej5"];
     $array_naves=["Voyager 1" => 722, "Voyager 2" => 825, "Cassini" => 2514, "Hubble" => 11110];
     $sum=array_sum($array_naves);
-    $res5="la suma de los arrays es de: " . $sum;
+    $res5="la suma de los arrays es de: " . $sum ." Ton";
 }
 
-
+else if (isset($_POST["ej6"])){
+    $ej6 = strtolower($_POST["ej6"]);
+    $array_planetas = [ "mercurio", "venus", "tierra", "marte", "júpiter", "saturno", "urano", "neptuno"];
+    $consulta = in_array($ej6,$array_planetas);
+    $res6 = $consulta ? "El planeta $ej6 SI existe" : "El planeta $ej6 NO existe";
+}
 
 
 ?>
@@ -126,6 +131,15 @@ else if (isset($_POST["ej5"])){
         <button name="ej5">Naves Sum</button>
     </form>
     <h4> <?= $res5 ?></h4>
+
+    <h2>Ejercicio 6</h2>
+    <p> Consultar planeta </p>
+    <form method="POST" action="">
+        <label for="ej6">Nombre del planeta</label>
+        <br>
+        <input type="text" name="ej6">Coloca el nombre del planeta que deseas consultar y presiona enter</input>
+    </form>
+    <h4> <?= $res6 ?></h4>
 
 </body>
 
