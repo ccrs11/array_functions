@@ -54,6 +54,14 @@ else if (isset($_POST["ej7"])){
     $res7 = $consulta ? "El tipo de nave $ej7 SI existe" : "El tipo de nave $ej7 NO existe";
 }
 
+else if (isset($_POST["ej8"])){
+    $ej8=$_POST["ej8"];
+    $array_planetas = [ 1=>"mercurio", 2=>"venus", 3=>"tierra", 4=>"marte", 5=>"júpiter", 6=>"saturno", 7=>"urano", 8=>"neptuno"];
+    $al=array_rand($array_planetas);
+    $planeta=$array_planetas[$al];
+    $res8="El indice es: " . $al ." y corresponde al planeta $planeta";
+}
+
 ?>
 
 
@@ -156,6 +164,13 @@ else if (isset($_POST["ej7"])){
     </form>
     <h4> <?= $res7 ?></h4>
 
+    <h2>Ejercicio 8</h2>
+    <p> Seleccionar un planeta aleatorio para explorar </p>
+    <form method="POST" action="">
+        <label for="ej8">tocar el botón para seleccionar un planeta aleatorio</label>
+        <button name="ej8">Indice aleatorio</button>
+    </form>
+    <h4> <?= $res8 ?></h4>
 </body>
 
 </html>
