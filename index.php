@@ -19,7 +19,6 @@ else if (isset($_POST["ej2"])) {
 //ejercio 3
 else if (isset($_POST["ej3"])){
     $ej3 = $_POST["ej3"];
-
     $array_planetas = [ "Mercurio" => false, "Venus" => false, "Tierra" => true, "Marte" => false, "Júpiter" => false, "Saturno" => false, "Urano" => false, "Neptuno" => false];
     $filter=array_filter($array_planetas, fn($p1) => $p1==true);
     $res3= " Los planetas habitables son: " . json_encode($filter);
@@ -27,7 +26,6 @@ else if (isset($_POST["ej3"])){
 
 else if (isset($_POST["ej4"])){
     $ej4=$_POST["ej4"];
-    print_r($ej4);
     $hi4 = "El planeta seleccionado es => " . $ej4;
     $array_planetas=["Mercurio"=>0.38, "Venus"=>0.91, "Tierra"=>1, "Marte"=>0.38, "Jupiter"=>2.53, "Saturno"=>1.07, "Urano"=>0.92, "Neptuno"=>1.19 ];
     $planetasGravedad = array_map(fn($array_planetas) => $array_planetas*9.80665,$array_planetas);
@@ -35,6 +33,12 @@ else if (isset($_POST["ej4"])){
     $res4="la gravedad del planeta seleccionado es de : " . $gravedad .  " m/s^2";
 }
 
+else if (isset($_POST["ej5"])){
+    $ej5=$_POST["ej5"];
+    $array_naves=["Voyager 1" => 722, "Voyager 2" => 825, "Cassini" => 2514, "Hubble" => 11110];
+    $sum=array_sum($array_naves);
+    $res5="la suma de los arrays es de: " . $sum;
+}
 
 
 
@@ -114,6 +118,14 @@ else if (isset($_POST["ej4"])){
     </form>
     <p> <?= $hi4 ?> </p>
     <h4> <?= $res4 ?></h4>
+
+    <h2>Ejercicio 5</h2>
+    <p> Calcular la masa total de una flota de naves espaciales </p>
+    <form method="POST" action="">
+        <label for="ej5">tocar el botón para calcular la masa de las naves</label>
+        <button name="ej5">Naves Sum</button>
+    </form>
+    <h4> <?= $res5 ?></h4>
 
 </body>
 
